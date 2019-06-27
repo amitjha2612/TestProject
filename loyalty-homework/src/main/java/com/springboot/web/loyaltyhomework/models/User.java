@@ -18,41 +18,14 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name= "user_table")
+@Table(name= "user_details")
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
 	private int id;
 	
-	@Column(name = "text")
-	private String name;
-	
-	 public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	@Column(name = "timestamp", nullable = false, updatable = false)
-	 @Temporal(TemporalType.TIMESTAMP)
-	 @CreatedDate
-	 private Date createdAt;
-		
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public User(){
-		
-	}
-	
-
 	/**
 	 * @return the id
 	 */
@@ -64,6 +37,69 @@ public class User {
 	 */
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	@Column(name = "TEXT")
+	private String text;
+	
+	 public String getText() {
+		return text;
+	}
+
+	public void setName(String text) {
+		this.text = text;
+	}
+	
+	@Column(name = "TIMESTAMP", nullable = false, updatable = false)
+	 @Temporal(TemporalType.TIMESTAMP)
+	 @CreatedDate
+	 private Date createdAt;
+		
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	
+	@Column(name = "USERNAME")
+	private String username;
+	
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	@Column(name = "FNAME")
+	private String fname;
+	
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+	@Column(name = "LNAME")
+	private String lname;
+	
+	public String getLname() {
+		return lname;
+	}
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+
+
+	public User(){
+		
 	}
 	
 	

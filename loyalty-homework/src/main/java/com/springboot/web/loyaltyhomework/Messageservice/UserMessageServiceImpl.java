@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.web.loyaltyhomework.DAO.UserInputDaoImpl;
+
 import com.springboot.web.loyaltyhomework.models.User;
 
 /**
@@ -21,15 +22,20 @@ import com.springboot.web.loyaltyhomework.models.User;
 public class UserMessageServiceImpl implements UserMessageService {
  
  @Autowired
- private UserInputDaoImpl userdaoimpl;
+ private UserInputDaoImpl userInputDaoimpl;
 
- 
+
  @Override
- //public List<User> saveOrUpdate(User user) {
-	 public User saveOrUpdate(User user) {
-	 return userdaoimpl.save(user);
-	//return (List<User>) userdaoimpl.findAll();
- }
+	public User saveText(User text) {
+	 System.out.println("Inside Service Impl --- Only text in input request");
+	 return userInputDaoimpl.save(text);
+	 }
+	 
 
+ @Override
+ 	 public User saveUser(User user) {
+	 System.out.println("Inside Service Impl --- User details in input request");
+	 return userInputDaoimpl.save(user);
+	}
  }
 
